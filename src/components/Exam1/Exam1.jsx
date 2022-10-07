@@ -10,9 +10,9 @@ const Wrapper = styled.div`
   border-radius: 8px;
   margin: 16px;
   padding: 16px;
-  width: 25%;
-  height: 300px;
-  vertical-align: middle;
+  width: ${(props) => (props.visible ? "25%" : "auto")};
+  height: ${(props) => (props.visible ? "200px" : "auto")};
+  vertical-align: ${(props) => (props.visible ? "middle" : "top")};
 `;
 
 function App() {
@@ -33,10 +33,10 @@ function App() {
   return (
     <UlWrapper style={{ listStyle: "none" }}>
       {posts.map((post, index) => (
-        <Wrapper key={index}>
+        <Wrapper key={index} visible={post.visible}>
           <input
             type="button"
-            value="X"
+            value={post.visible ? "닫기" : "열기"}
             onClick={() => {
               post.visible = !post.visible;
               setPosts([...posts]);
