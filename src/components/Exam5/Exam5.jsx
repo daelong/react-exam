@@ -91,7 +91,6 @@ function App() {
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const getPosts = async () => {
-    console.log("뭐야");
     const res = await axios.get(
       `https://api.openbrewerydb.org/breweries?page=${page}&per_page=25`
     );
